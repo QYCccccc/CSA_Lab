@@ -185,7 +185,7 @@ void replayTrace(char* trace_fn)
     mem_addr_t addr=0;
     unsigned int len=0;
     FILE* trace_fp = fopen(trace_fn, "r");
-    while(fscanf(trace_fp, "%s %llu,%u", opt, &addr, &len) != EOF){
+    while(fscanf(trace_fp, "%s %llx,%u", opt, &addr, &len) != EOF){
         //printf("%s %llu,%u ", opt, addr, len);
         //getchar();
         /* code */
@@ -193,7 +193,7 @@ void replayTrace(char* trace_fn)
 
         if (verbosity) {
             /* code */
-            printf("%s %llu,%u ", opt, addr, len);
+            printf("%s %llx,%u ", opt, addr, len);
         }
         if(strcmp(opt, "L") == 0) {
                 accessData(addr);
